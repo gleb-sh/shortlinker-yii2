@@ -42,7 +42,7 @@ https://github.com/gleb-sh/shortlinker-yii2/blob/main/sql_create_tables.sql
 
 <code>INNER JOIN links where resultlist.link_id = links.id</code>
 
-* наконец, нужно отсортировать всё полученное по месяцам внужном порядке, а внутри месяца - по позиции в рейтинге;
+* наконец, нужно отсортировать всё полученное по месяцам в нужном порядке, а внутри месяца - по позиции в рейтинге;
 
 <code>ORDER BY resultlist.is_month DESC, resultlist.position_on_top ASC</code>
 
