@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=roadgid',
-    'username' => 'roadgid',
-    'password' => '12345!Aa',
+    'dsn' => 'mysql:host=localhost;dbname=database',
+    'username' => 'root',
+    'password' => 'root',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)
