@@ -13,7 +13,7 @@ function scripts() {
         'resources/js/*.js'
     ])
     .pipe(concat('app.min.js'))
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(dest('web/js/'))
 }
 
@@ -31,7 +31,7 @@ function styles() {
     }))
     .pipe(cleanсss( ({
         level: { 1: {specialComments: 0 } },
-        //format: 'beautify'
+        format: 'beautify'
     }) ))
     .pipe(dest('web/css/'))
 }

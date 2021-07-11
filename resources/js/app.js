@@ -1,21 +1,17 @@
-let YoutDomain = ''
+let YoutDomain = '';
 
-class Ajax
-{
-    getdata(method,data,success = function(){})
-    {
-        let getdata = new XMLHttpRequest();
+function getdata(method,data,success = function(){}) {
+    let getdata = new XMLHttpRequest();
 
-        getdata.open('POST', method,true)
-        getdata.setRequestHeader('Content-Type','application/json; charset=utf-8')
-        getdata.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
-        getdata.send( JSON.stringify(data) )
-        getdata.onreadystatechange = function() {
-            if (getdata.readyState != 4) return;        
-            ans = JSON.parse(getdata.responseText)
-            console.log(ans)
-            succses(ans);
-        }
+    getdata.open('POST', method,true)
+    getdata.setRequestHeader('Content-Type','application/json; charset=utf-8')
+    getdata.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
+    getdata.send( JSON.stringify(data) )
+    getdata.onreadystatechange = function() {
+        if (getdata.readyState != 4) return;        
+        ans = JSON.parse(getdata.responseText)
+        console.log(ans)
+        success(ans);
     }
 }
 
@@ -44,7 +40,7 @@ document.querySelectorAll('.unical-form').forEach(form=>{
             } else {
                 //
                 result.classList.add('error')
-                result.querySelector('p').innerHTML = ans.error
+                result.querySelector('p').innerHTML = ans.error.message
             }
         })
 
@@ -75,5 +71,19 @@ document.querySelectorAll('*[data-copy]').forEach(el=>{
                 el.classList.remove('success-copy')
             }, 3000);
         }
+    })
+})
+
+document.querySelectorAll('.js-newlink').forEach(newlink=>{
+    newlink.addEventListener('click',()=>{
+        let result = document.querySelector('.unical-result');
+        result.classList.remove('active');
+        result.classList.remove('error');
+        result.querySelector('a').innerHTML = "";
+        result.querySelector('a').setAttribute('href','');
+        result.querySelector('p').innerHTML = "";
+        document.querySelector('.unical-form button').classList.remove('hidden');
+        document.querySelector('.unical-form input').removeAttribute('disabled');
+        //setAttribute('disabled',false);
     })
 })
