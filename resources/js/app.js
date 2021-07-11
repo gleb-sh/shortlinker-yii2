@@ -1,4 +1,4 @@
-let YoutDomain = '';
+let Domain = document.querySelector('meta[name="user-url"]').getAttribute('content');
 
 function getdata(method,data,success = function(){}) {
     let getdata = new XMLHttpRequest();
@@ -34,8 +34,8 @@ document.querySelectorAll('.unical-form').forEach(form=>{
             if (ans.status === 1) {
                 //
                 result.classList.add('active');
-                result.querySelector('a').innerHTML = YoutDomain + '/' + ans.data.alias;
-                result.querySelector('a').setAttribute('href','https://' + YoutDomain + '/' + ans.data.alias)
+                result.querySelector('a').innerHTML = Domain + '/' + ans.data.alias;
+                result.querySelector('a').setAttribute('href', Domain + '/' + ans.data.alias)
                                 
             } else {
                 //
@@ -84,6 +84,5 @@ document.querySelectorAll('.js-newlink').forEach(newlink=>{
         result.querySelector('p').innerHTML = "";
         document.querySelector('.unical-form button').classList.remove('hidden');
         document.querySelector('.unical-form input').removeAttribute('disabled');
-        //setAttribute('disabled',false);
     })
 })

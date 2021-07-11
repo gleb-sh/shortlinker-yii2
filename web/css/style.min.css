@@ -90,6 +90,9 @@ body {
 .unical-form input:focus {
   font-size: 20px
 }
+.unical-form input:disabled {
+  background: gray
+}
 .unical-form button {
   padding: 10px 40px;
   cursor: pointer;
@@ -158,6 +161,9 @@ body {
   color: #f0f8ff;
   font-size: 18px;
   text-decoration: none
+}
+.unical-result a:hover {
+  color: coral
 }
 .button {
   text-align: center;

@@ -66,6 +66,9 @@ body {
         &:focus {
             font-size: 20px;
         }
+        &:disabled {
+            background: gray;
+        }
     }
     button {
         padding: 10px 40px;
@@ -115,6 +118,9 @@ body {
         color: aliceblue;
         font-size: 18px;
         text-decoration: none;
+        &:hover {
+            color: coral;
+        }
     }
 }
 
