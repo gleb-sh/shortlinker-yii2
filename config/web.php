@@ -11,6 +11,9 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'bootstrap' => [
+        'queue',
+    ],
     'components' => [
         'LinkService' => [
             'class' => 'app\services\LinkService'
@@ -53,6 +56,13 @@ $config = [
                 'POST createlink' => 'link/create',
                 'GET <alias>' => 'link/redirect',
             ],
+        ],
+        'queue' => [
+            'class' => \yii\queue\db\Queue::class,
+            'db' => 'db', // DB connection component or its config 
+            'tableName' => '{{%queue}}', // Table name
+            'channel' => 'default', // Queue channel key
+            'mutex' => \yii\mutex\MysqlMutex::class, // Mutex used to sync queries
         ],
     ],
     'params' => $params,

@@ -6,16 +6,11 @@ use yii\web\Controller;
 use yii\web\Response;
 use app\models\Link;
 use Yii;
+use app\jobs\BotJob;
 
 class LinkController extends Controller
 {
     use \app\traits\JsonTrait;
-
-
-    public function beforeAction($action) {
-        $this->enableCsrfValidation = ($action->id !== "create");
-        return parent::beforeAction($action);
-    }
 
     public function actions()
     {
@@ -80,6 +75,12 @@ class LinkController extends Controller
             \Yii::$app->response->statusCode = 404;
             return $this->redirect(['site/error']);
         }
+
+        // джоба на проверку user-agent-a
+        Yii::$app->queue->push(new BotJob([
+            'userAgent' => Yii::$app->request->userAgent,
+            'link' => $link->id
+        ]));
 
         return \Yii::$app->response->redirect($link->link_name);
     }
