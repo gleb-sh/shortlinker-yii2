@@ -1,4 +1,143 @@
 body {
-    margin: 0;
     background: #111;
+    margin: 0;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 100vh;
+    width: 100%;
+    justify-content: center;
+}
+
+.unical {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.unical-title {
+    h1 {
+        color: aliceblue;
+        text-align: center;
+        font-family: sans-serif;
+    }
+    p {
+        text-align: center;
+        color: aliceblue;
+    }
+}
+
+.unical-form {
+    &.submit {
+        display: none;
+    }
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    max-width: 70vw;
+    width: 100%;
+    min-width: 400px;
+    input, button {
+        outline: none;
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        font-size: 18px;
+        margin: 5px 0;
+        border-radius: 10px;
+        background: none;
+        border: none;
+    }
+    input {
+        background: aliceblue;
+        color: #111;
+        text-align: center;
+        padding: 10px;
+        line-height: 25px;
+        transition: font-size .15s linear;
+        &:focus {
+            font-size: 20px;
+        }
+    }
+    button {
+        padding: 10px 40px;
+        cursor: pointer;
+        color: aliceblue;
+        border: 1px solid aliceblue;
+        transition: background .2s ease-in-out;
+        &:hover {
+            background: aliceblue;
+            color: #111;
+        }
+    }
+
+}
+
+.unical-result {
+    padding: 20px;
+    user-select: text;
+    display: none;
+    h2, h3 {
+        display: none;
+    }
+    &.error {
+        display: flex;
+        h3 {
+            display: block;
+        }
+    }
+    &.active {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        h2 {
+            display: block;
+            color: antiquewhite;
+        }
+    }
+    h2, h3 {
+        color: antiquewhite;
+    }
+    a, p {
+        color: crimson;
+    }
+    a {
+        color: aliceblue;
+        font-size: 18px;
+        text-decoration: none;
+    }
+}
+
+.button {
+    text-align: center;
+    outline: none;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    margin: 5px 0;
+    border-radius: 10px;
+    background: none;
+    border: none;
+    padding: 10px 40px;
+    cursor: pointer;
+    color: aliceblue;
+    border: 1px solid aliceblue;
+    transition: background .2s ease-in-out;
+    &:hover {
+        background: aliceblue;
+        color: #111;
+    }
+    &.success-copy {
+        background: teal;
+        color: aliceblue;
+    }
 }
